@@ -27,7 +27,7 @@ def chartofaccountsgroups():
 
     Label1 = Label(Canvas2,text='List of masters', background="white",foreground="black",font="-family {Segoe Arial} -size 15 -weight bold ").place(relx=0, rely=0.07,relwidth=.100)
     b1 = Button(Canvas2,text = "Branch/Divisions",activeforeground = "black", activebackground = "#ffbe23",fg='black',bg='white',borderwidth=0,font=('Arial 10'),command=LOGbranchordivision).place(relx=0, rely=0.12)
-    b2 = Button(Canvas2,text = "Capital Account",activeforeground = "black", activebackground = "#ffbe23",fg='black',bg='white',borderwidth=0,font=('Arial 10')).place(relx=0, rely=0.15)
+    b2 = Button(Canvas2,text = "Capital Account",activeforeground = "black", activebackground = "#ffbe23",fg='black',bg='white',borderwidth=0,font=('Arial 10'),command=LOGcapitalaccount).place(relx=0, rely=0.15)
     b3 = Button(Canvas2,text = "Reserves & Surplus",activeforeground = "black", activebackground = "#ffbe23",fg='black',bg='white',borderwidth=0,font=('Arial 10')).place(relx=0.02, rely=0.18)
     b4 = Button(Canvas2,text = "Current Assets",activeforeground = "black", activebackground = "#ffbe23",fg='black',bg='white',borderwidth=0,font=('Arial 10')).place(relx=0, rely=0.21)
     b5 = Button(Canvas2,text = "Bank Accounts",activeforeground = "black", activebackground = "#ffbe23",fg='black',bg='white',borderwidth=0,font=('Arial 10')).place(relx=0.02, rely=0.24)
@@ -239,12 +239,46 @@ def LOGbranchordivision():
     Label4 = Label(Canvas3,text='◆Primary', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.10, rely=0.18)
     separator = ttk.Separator(Canvas3, orient='horizontal').place(relx=0, rely=0.23, relheight=0, relwidth=0.450)
     Label5 = Label(Canvas3,text='Nature of Group :', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.02, rely=0.26)
+    combo1 = ttk.Combobox(Canvas3,values=["Assets", "Liabilities"]).place(relx=0.25, rely=0.26)
     Label6 = Label(Canvas3,text='Group behaves like a sub-ledger :', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.02, rely=0.31)
+    combo2 = ttk.Combobox(Canvas3,values=["Yes", "No"]).place(relx=0.25, rely=0.31)
     Label7 = Label(Canvas3,text='Nett Debit/Credit Balances for Reporting :', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.02, rely=0.36)
+    combo3 = ttk.Combobox(Canvas3,values=["Yes", "No"]).place(relx=0.25, rely=0.36)
     Label8 = Label(Canvas3,text='Used for calculation (for example: taxes,discounts) :', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.02, rely=0.41)
+    combo4 = ttk.Combobox(Canvas3,values=["Yes", "No"]).place(relx=0.25, rely=0.41)
     Label9 = Label(Canvas3,text='(for sales invoice entries)', background="white",foreground="black",font="-family {Papyrus} -size 10 -weight bold ").place(relx=0.02, rely=0.46)
     Label10 = Label(Canvas3,text='Method to allocate when used in purchase invoice :', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.02, rely=0.51)
     Label11 = Label(Canvas3,text='◆Not Applicable', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.25, rely=0.51)
+    # b1 = Button(Canvas2,text = "Main Location",activeforeground = "black", activebackground = "#ffbe23",fg='black',bg='white',borderwidth=0,font=('Arial 10')).place(relx=0.003, rely=0.13)
+    b2 = Button(Canvas2,text = "X",activeforeground = "white", activebackground = "red",fg='white',bg='black',borderwidth=0,font=('Arial 10'),command=chartofaccountsgroups).place(relx=0.8, rely=0.1)
+
+def LOGcapitalaccount():
+    global Canvas1
+    Canvas1 = tk.Canvas( background="#ffffff", relief="ridge").place(relx=0, rely=0.07, relheight=0.900, relwidth=.850)
+
+    global Canvas2
+    Canvas2 = tk.Canvas( background="#8a8a8a", relief="ridge").place(relx=0, rely=0.07, relheight=0.900, relwidth=.850)
+
+    global Canvas3
+    Canvas3 = tk.Canvas( background="white", relief="ridge").place(relx=0, rely=0.07, relheight=0.500, relwidth=.450)
+    Label1 = Label(Canvas3,text='Name :', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.02, rely=0.09)
+    e1=Entry(Canvas3,bg='#ffdd90').place(relx=0.25,rely=0.09,relwidth=.180)
+    Label2 = Label(Canvas3,text='(alias) :', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.02, rely=0.12)
+    e2=Entry(Canvas3,bg='#ffdd90').place(relx=0.25,rely=0.12,relwidth=.180)
+    Label3 = Label(Canvas3,text='Under :', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.02, rely=0.18)
+    Label4 = Label(Canvas3,text='◆Primary', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.10, rely=0.18)
+    separator = ttk.Separator(Canvas3, orient='horizontal').place(relx=0, rely=0.23, relheight=0, relwidth=0.450)
+    Label5 = Label(Canvas3,text='Nature of Group :', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.02, rely=0.26)
+    Label6 = Label(Canvas3,text='Liabilities', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.25, rely=0.26)
+    Label7 = Label(Canvas3,text='Group behaves like a sub-ledger :', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.02, rely=0.31)
+    combo2 = ttk.Combobox(Canvas3,values=["Yes", "No"]).place(relx=0.25, rely=0.31)
+    Label8 = Label(Canvas3,text='Nett Debit/Credit Balances for Reporting :', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.02, rely=0.36)
+    combo3 = ttk.Combobox(Canvas3,values=["Yes", "No"]).place(relx=0.25, rely=0.36)
+    Label9 = Label(Canvas3,text='Used for calculation (for example: taxes,discounts) :', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.02, rely=0.41)
+    combo4 = ttk.Combobox(Canvas3,values=["Yes", "No"]).place(relx=0.25, rely=0.41)
+    Label10 = Label(Canvas3,text='(for sales invoice entries)', background="white",foreground="black",font="-family {Papyrus} -size 10 -weight bold ").place(relx=0.02, rely=0.46)
+    Label11 = Label(Canvas3,text='Method to allocate when used in purchase invoice :', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.02, rely=0.51)
+    Label12 = Label(Canvas3,text='◆Not Applicable', background="white",foreground="black",font="-family {Arial} -size 10 -weight bold ").place(relx=0.25, rely=0.51)
     # b1 = Button(Canvas2,text = "Main Location",activeforeground = "black", activebackground = "#ffbe23",fg='black',bg='white',borderwidth=0,font=('Arial 10')).place(relx=0.003, rely=0.13)
     b2 = Button(Canvas2,text = "X",activeforeground = "white", activebackground = "red",fg='white',bg='black',borderwidth=0,font=('Arial 10'),command=chartofaccountsgroups).place(relx=0.8, rely=0.1)
 
